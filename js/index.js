@@ -1,7 +1,7 @@
 const fun = new MainFun();
 const tip = IUToast;
 const lgb = fun.languageChoice();
-const baseUrl = 'https://cybermiles.github.io/smart_contracts/FairPlay/dapp/play.html';
+const baseUrl = 'https://www.FairPlayDapp.com/play.html';
 var webBrowser = new AppLink();
 
 $(document).ready(function () {
