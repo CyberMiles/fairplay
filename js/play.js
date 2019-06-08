@@ -1,7 +1,7 @@
 const fun = new MainFun();
 const tip = IUToast;
 const lgb = fun.languageChoice();
-const baseUrl = 'https://cybermiles.github.io/smart_contracts/FairPlay/v1/dapp/play.html';
+const baseUrl = 'https://www.FairPlayDapp.com/play.html';
 const webBrowser = new AppLink();
 const contract_address = fun.getParameter("contract");
 var userAddress = '';
