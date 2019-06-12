@@ -504,7 +504,7 @@ var confirm = function () {
         $('#confirm-submit').removeAttr('onclick');
 
         instance.confirm(v, {
-            gas: '200000',
+            gas: '490000',
             gasPrice: 0
         }, function (e, result) {
             if (e) {
