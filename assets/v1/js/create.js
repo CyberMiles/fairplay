@@ -13,7 +13,7 @@ $(function () {
     getBin();
     initLanguage();
     initLinkTb();
-
+    
     $('.image-upload-wrap').bind('dragover', function () {
              $('.image-upload-wrap').addClass('image-dropping');
     });

@@ -1,8 +1,7 @@
 const fun = new MainFun();
 const tip = IUToast;
 const lgb = fun.languageChoice();
-const baseUrl = 'https://www.FairPlayDapp.com/play.html';
-// var webBrowser = new AppLink();
+
 const getUrlParameter = function (name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -147,6 +146,7 @@ var initLanguage = function () {
     });
 }
 var initBtn = function(){
+    
     $(".more-plays").click(()=>{
       var moreitems = 0   
       var n_itmes = $(".card").length
@@ -165,7 +165,6 @@ var initBtn = function(){
 
 $(document).ready(function() {
 
-  // webBrowser.openBrowser();
   initLanguage();
 
   initBtn();

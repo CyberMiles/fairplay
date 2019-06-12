@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/iutoast.css">
+    <link rel="stylesheet" href="assets/v1/css/index.css">
+    <link rel="stylesheet" href="assets/v1/css/iutoast.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
@@ -53,17 +53,17 @@
                 <p id="self_addr">0x12345678abcdefgh12345678abcdefgh</p>
                 <hr class="profile_hr">
                 <li>
-                    <a  href="./search-results.html?method=created"><span class="oi oi-pencil" style="padding-right:5px;"></span><span data-translate="icreated">I created</span></a>
+                    <a class="result-created" href="search-results.html?method=created"><span class="oi oi-pencil" style="padding-right:5px;"></span><span data-translate="icreated">I created</span></a>
                 </li>
                 <li>
-                    <a  href="./search-results.html?method=participated"><span class="oi oi-person" style="padding-right:5px;"></span><span data-translate="iparticipated">I participated in</span></a>
+                    <a class="result-participated" href="search-results.html?method=participated"><span class="oi oi-person" style="padding-right:5px;"></span><span data-translate="iparticipated">I participated in</span></a>
                 </li>
                 <li>
-                    <a  href="./search-results.html?method=won"><span class="oi oi-briefcase" style="padding-right:5px;"></span><span data-translate="iwon">I won</span></a>
+                    <a class="result-won" href="search-results.html?method=won"><span class="oi oi-briefcase" style="padding-right:5px;"></span><span data-translate="iwon">I won</span></a>
                 </li>
                 <hr class="profile_hr">
                 <li>
-                    <a  href="./create.html"><span class="oi oi-plus x" style="padding-right:5px;"></span><span data-translate="create_new">create a new giveaway</span></a>
+                    <a class="create-btn" href="v1/create.html"><span class="oi oi-plus x" style="padding-right:5px;"></span><span data-translate="create_new">create a new giveaway</span></a>
                 </li>
             </ul>
             <div class="sidebar-header">
@@ -79,7 +79,7 @@
         <div id="content">
             <div class="header">
                 <div class="fairplay_logo">
-                    <img alt="FairPlay" style="width: 125px;" src="img/FairPlay2x.jpg">
+                    <img alt="FairPlay" style="width: 125px;" src="assets/img/FairPlay2x.jpg">
                 </div>
             </div>
 
@@ -88,7 +88,7 @@
             </div>
 
             <div class="container">
-                <a class="btn btn-fairplay" id="create-btn" href="./create.html"><span class="oi oi-plus x"></span><span data-translate="create_new">create a new giveaway</span></a>
+                <a class="btn btn-fairplay create-btn" id="create-btn" href="v1/create.html"><span class="oi oi-plus x"></span><span data-translate="create_new">create a new giveaway</span></a>
                 <form id="search-panel" action="./search-results.html" class="navbar-form" role="search">
                     <div class="input-group add-on">
                       <input class="form-control search-box" data-translate="search_tips" name="srch-term" id="srch-term" type="text">
@@ -101,10 +101,10 @@
                 <br/>
                 <ul class="tab-btns">
                     <li class="active">promoted</li>
-                    <li><a href="./search-results.html?method=created">mine</a></li>
-                    <li><a href="./search-results.html?method=participated">participated</a></li>
-                    <li><a href="./search-results.html?method=won">won</a></li>
-                    <li><a href="./search-results.html?method=unfiltered">all</a></li>
+                    <li><a class="result-created" href="search-results.html?method=created">mine</a></li>
+                    <li><a class="result-participated" href="search-results.html?method=participated">participated</a></li>
+                    <li><a class="result-won" href="search-results.html?method=won">won</a></li>
+                    <li><a class="result-unfiltered" href="search-results.html?method=unfiltered">all</a></li>
                 </ul>
                 <div class="card-deck">
                     <small class="card-tips" data-translate="promoted_plays">Promoted giveaways</small>
@@ -141,7 +141,7 @@
 
 
     
-    <script type="text/javascript" src="js/jquery-3.4.0.min.js"></script>
+    <script type="text/javascript" src="assets/v1/js/jquery-3.4.0.min.js"></script>
     
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
@@ -150,9 +150,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/showdown@1.9.0/dist/showdown.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/secondStateJS.js?v=20190605"></script>
-    <script src="js/index.js"></script>
+    <script src="assets/v1/js/main.js"></script>
+    <script src="assets/v1/js/secondStateJS.js?v=20190605"></script>
+    <script src="assets/v1/js/index.js"></script>
 </body>
 
 </html>

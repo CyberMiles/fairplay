@@ -1,11 +1,34 @@
-document.write("<script type='text/javascript' src='./js/popper.min.js'></script>");
-document.write("<script type='text/javascript' src='./js/bootstrap.min.js'></script>");
-document.write("<script type='text/javascript' src='./js/clipboard.js'></script>");
-document.write("<script type='text/javascript' src='./js/popupTip/layer.js'></script>");
-document.write("<script type='text/javascript' src='./js/popupTip.js'></script>");
-document.write("<script type='text/javascript' src='./js/browser.js'></script>");
-document.write("<script type='text/javascript' src='./js/language/en.js'></script>");
-document.write("<script type='text/javascript' src='./js/language/zh.js'></script>");
+if(window.location.href.split("/").indexOf("v1") !== -1){ //v1 directory
+    document.write("<script type='text/javascript' src='../assets/v1/js/popper.min.js'></script>");
+    document.write("<script type='text/javascript' src='../assets/v1/js/bootstrap.min.js'></script>");
+    document.write("<script type='text/javascript' src='../assets/v1/js/clipboard.js'></script>");
+    // document.write("<script type='text/javascript' src='../assets/v1/js/popupTip/layer.js'></script>");
+    document.write("<script type='text/javascript' src='../assets/v1/js/popupTip.js'></script>");
+    document.write("<script type='text/javascript' src='../assets/v1/js/browser.js'></script>");
+    document.write("<script type='text/javascript' src='../assets/v1/js/language/en.js'></script>");
+    document.write("<script type='text/javascript' src='../assets/v1/js/language/zh.js'></script>");
+}
+else if(window.location.href.split("/").indexOf("v2") !== -1){ //v2 directory
+   document.write("<script type='text/javascript' src='../assets/v2/js/popper.min.js'></script>");
+    document.write("<script type='text/javascript' src='../assets/v2/js/bootstrap.min.js'></script>");
+    document.write("<script type='text/javascript' src='../assets/v2/js/clipboard.js'></script>");
+    // document.write("<script type='text/javascript' src='../assets/v1/js/popupTip/layer.js'></script>");
+    document.write("<script type='text/javascript' src='../assets/v2/js/popupTip.js'></script>");
+    document.write("<script type='text/javascript' src='../assets/v2/js/browser.js'></script>");
+    document.write("<script type='text/javascript' src='../assets/v2/js/language/en.js'></script>");
+    document.write("<script type='text/javascript' src='../assets/v2/js/language/zh.js'></script>");
+}
+else{ // top directory
+    document.write("<script type='text/javascript' src='assets/v1/js/popper.min.js'></script>");
+    document.write("<script type='text/javascript' src='assets/v1/js/bootstrap.min.js'></script>");
+    document.write("<script type='text/javascript' src='assets/v1/js/clipboard.js'></script>");
+    // document.write("<script type='text/javascript' src='assets/v1/js/popupTip/layer.js'></script>");
+    document.write("<script type='text/javascript' src='assets/v1/js/popupTip.js'></script>");
+    document.write("<script type='text/javascript' src='assets/v1/js/browser.js'></script>");
+    document.write("<script type='text/javascript' src='assets/v1/js/language/en.js'></script>");
+    document.write("<script type='text/javascript' src='assets/v1/js/language/zh.js'></script>");
+}
+
 
 const domType = ["div", "span", "p"];
 const attrType = ["id", "name", "class"];
@@ -322,7 +345,7 @@ var MainFun = (function () {
             _createDivInnerHtml(domType[0], attrType[0], appendType[2], ownerDiv, id, parentId);
             var element = document.getElementById(id);
             var btnElement = document.getElementById("create-button");
-            btnElement.style.cssText = "background-color: " + color;
+            btnElement.style.cssxText = "background-color: " + color;
             fun.addMainEvent(btnElement, "click", bindFun);
             fun.divShow(element);
         };

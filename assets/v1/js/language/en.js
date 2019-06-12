@@ -41,7 +41,7 @@ var EnLanguage = {
     phone:"Phone",
     email:"Email",
     enter:"Enter",
-    update:"Upadate Info",
+    update:"Update Info",
     confirm_update:"Confirm",
     time_up:"The time is up.",
     draw_msg:"Anyone can initiate a giveaway now!",

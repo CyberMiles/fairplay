@@ -1,3 +1,5 @@
+// var baseUrl = "https://cybermiles.github.io/smart_contracts/FairPlay/"
+// var relativePlayUrl = "/dapp/play.html?contract="
 /*
 $.ajaxPrefilter( function (options) {
   if (options.crossDomain && jQuery.support.cors) {
@@ -33,7 +35,7 @@ var ICreatedButton = () => {
             dQuery['query'] = dBool;
             var jsonString = JSON.stringify(dQuery);
             // If this is a public website then we need to call ES using Flask
-            var itemArray = await getItemsViaFlask({_data: jsonString, _filtered: false});
+            var itemArray = await getItemsViaFlask({_data: jsonString, _cmpParams: ["_source","blockNumber"], _filtered: false});
 
 
             return Object.keys(itemArray).length;
@@ -68,7 +70,7 @@ var IParticipatedButton = () => {
             var jsonString = JSON.stringify(dQuery);
 
             // If this is a public website then we need to call ES using Flask
-            var itemArray = await getItemsViaFlask({_data: jsonString, _filtered: false});
+            var itemArray = await getItemsViaFlask({_data: jsonString, _cmpParams: ["_source","blockNumber"], _filtered: false});
 
             return Object.keys(itemArray).length;
         }
@@ -102,7 +104,7 @@ var IWonButton = () => {
             $("#pbc").hide('slow');
             var jsonString = JSON.stringify(dQuery);
             // If this is a public website then we need to call ES using Flask
-            var itemArray = await getItemsViaFlask({_data: jsonString, _filtered: false});
+            var itemArray = await getItemsViaFlask({_data: jsonString, _cmpParams: ["_source","blockNumber"], _filtered: false});
 
             return Object.keys(itemArray).length;
         }
@@ -331,6 +333,8 @@ blacklist = ["0xFb1072dA1f6123fa389B6385D5AB7D1cd4BDe509",
             ];
 
 whitelist = ["0x17D5eC999a2cDeE4c5986d5714330D36172355A8",
+             "0x16700a82EfA734237b84e4c4274d2AFB1bFB1b20",
+             "0xFa2d2DEa32B7827614e128DB01CcB32202189E2d",
              "0x0F9efabb1f26CE173774260D975C543C39b47179",
              "0x454024A14970c336109D0284a85BA253033A2D72",
              "0x474059cC019815dda16caB69b8c8Bf515E1D20B6",
@@ -342,8 +346,6 @@ whitelist = ["0x17D5eC999a2cDeE4c5986d5714330D36172355A8",
              "0x588C0d40A2434f537A1A82bA98CE327C9834a536",
              "0xaf0E7a84Df990d2BdDed61904828fad2f5442416",
              "0x0434c1114eE3cA1f67386eBD69480638fc6e72BD"];
-
-
 
 async function getItemsViaFlask({_data = _defaultDataString, _compare = cmpFunc, _cmpParams = [], _renderNow = true, _filtered = true}) {
     theUrlForData = publicIp + "/api/es_search";
@@ -395,26 +397,16 @@ async function getItemsViaFlask({_data = _defaultDataString, _compare = cmpFunc,
 }
 
 var renderGiveaways = async (_hits) =>{
-    var abi = "";
 
     let real_length;
-    try{
-        data = await $.ajax({
-            url: 'FairPlay.abi',
-            sync: true,
-            dataType: 'text',
-        });
+ 
+    //empty all the card except the template
+    $(".card").slice(1).detach()
 
-        abi = JSON.parse(data);
-        //empty all the card except the template
-        $(".card").slice(1).detach()
-
-        $.each(_hits, (index, value)=>{
-            modifyTemplate(index, value);
-        })
-    }catch(error){
-       console.log("Get abi failed");
-    }
+    $.each(_hits, (index, value)=>{
+        modifyTemplate(index, value);
+    })
+   
 }
 
 var modifyTemplate = (index, value) => {
@@ -479,8 +471,7 @@ var modifyTemplate = (index, value) => {
         
         template.find(".rm-giveaway").attr("alt", value._source.contractAddress)
 
-        // var playUrl = "https://cybermiles.github.io/smart_contracts/FairPlay/" + value._source.dappVersion + "/dapp/play.html?contract=" + value._source.contractAddress;
-        var playUrl = "https://www.FairPlayDApp.com/play.html?contract=" + value._source.contractAddress;
+        var playUrl = value._source.dappVersion + "/play.html?contract=" + value._source.contractAddress;
         template.find(".nav-details").attr("href", playUrl)
         template.find(".giveaway-url").attr("href", playUrl)
         $(".card-deck").append(template)

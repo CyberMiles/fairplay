@@ -1,7 +1,7 @@
 const fun = new MainFun();
 const tip = IUToast;
 const lgb = fun.languageChoice();
-const baseUrl = 'https://www.FairPlayDapp.com/play.html';
+// const baseUrl = window.location.origin;
 const webBrowser = new AppLink();
 const contract_address = fun.getParameter("contract");
 var userAddress = '';
@@ -23,6 +23,8 @@ $(function () {
     bindShowShare();
     tip.loading(lgb["loading"] || "Loading ...");
     
+
+
     var addr_clipboard = new ClipboardJS('.cp-addr-btn');
     addr_clipboard.on('success', function(e) {
         $('.cp-addr-btn').text(lgb["copied"] || "copied")
@@ -127,8 +129,8 @@ function copyLink(){
 
 var bindShowShare = function(){
     //noD$(".share-btn")isplay = ['xing', 'print', 'vk'];
-    $("iframe").attr("src", "./share.html?code=" + contract_address)
-    $("#share-link").val(baseUrl + "?contract=" + contract_address);
+    $("iframe").attr("src", "share.html?code=" + contract_address)
+    $("#share-link").val(window.location.toString());
     // $(".share-btn").click(()=>{
     //    $(".share-panel").removeClass("d-none");
     //    $(".overlay").removeClass("d-none");
@@ -275,48 +277,46 @@ var getInfo = function () {
                         }
                     });
                     // END instance.playerInfo
+                     
+                }
+            });
+
+            // Display the winners(it doens't need to verify the status = 1, because if status = 0, winners.length will be 0)
+            instance.winner_addrs (function (ewa, rwa) {
+                if (ewa) {
+                    console.log(ewa);
+                } else {
+                    var winners = rwa;
+                    if (winners && winners.length > 0) {
+                        $('#winners-panel').css("display", "block");
+                    }
                     
-                    if (status == 1) {
-                        // Display the winners
-                        instance.winner_addrs (function (ewa, rwa) {
-                            if (ewa) {
-                                console.log(ewa);
+                    console.log(ownerAddress);
+                    console.log(userAddress);
+                    
+                    for (let i = 0; i < winners.length; i++) {
+                        thiswinner = winners[i]
+                        instance.playerInfo (thiswinner, (epi, rpi) => {
+                            if (epi) {
+                                  console.log(epi);
                             } else {
-                                var winners = rwa;
-                                if (winners && winners.length > 0) {
-                                    $('#winners-panel').css("display", "block");
-                                }
-                                
-                                console.log(ownerAddress);
-                                console.log(userAddress);
-                                
-                                for (let i = 0; i < winners.length; i++) {
-                                    thiswinner = winners[i]
-                                    instance.playerInfo (thiswinner, (epi, rpi) => {
-                                        if (epi) {
-                                              console.log(epi);
-                                        } else {
-                                              // console.log(winners[i])
-                                              thisAddr = winners[i]
-                                              winner_row = $("#winners-panel-table").find("tr.d-none").clone(true).removeClass("d-none")
-                                              winner_row.find(".user-name").text(rpi[2])
-                                              winner_row.find(".user-comment").text(rpi[5])
-                                              if (ownerAddress == userAddress) {
-                                                  $(".winner-contact").removeClass("d-none")
-                                                  winner_row.find(".user-addr").removeClass("d-none")
-                                                  winner_row.find(".user-addr > a").attr("alt", thisAddr)
-                                                  winner_row.find(".user-addr-txt").text(thisAddr.slice(0, 4) + "****" + thisAddr.slice(-2))
-                                                  winner_row.find(".user-contact").removeClass("d-none")
-                                                  winner_row.find(".user-contact").text(rpi[3])
-                                              }
-                                              $("#winners-panel-table").append(winner_row)
-                                        }
-                                    });
-                                }
+                                  // console.log(winners[i])
+                                  thisAddr = winners[i]
+                                  winner_row = $("#winners-panel-table").find("tr.d-none").clone(true).removeClass("d-none")
+                                  winner_row.find(".user-name").text(rpi[2])
+                                  winner_row.find(".user-comment").text(rpi[5])
+                                  if (ownerAddress == userAddress) {
+                                      $(".winner-contact").removeClass("d-none")
+                                      winner_row.find(".user-addr").removeClass("d-none")
+                                      winner_row.find(".user-addr > a").attr("alt", thisAddr)
+                                      winner_row.find(".user-addr-txt").text(thisAddr.slice(0, 4) + "****" + thisAddr.slice(-2))
+                                      winner_row.find(".user-contact").removeClass("d-none")
+                                      winner_row.find(".user-contact").text(rpi[3])
+                                  }
+                                  $("#winners-panel-table").append(winner_row)
                             }
                         });
                     }
-                    // END if (status == 1)  
                 }
             });
 
@@ -432,8 +432,8 @@ var play = function () {
         $("#mesg-field").attr("disabled", true);
 
         instance.play(name, contact, mesg, {
-            gas: '200000',
-            gasPrice: 0
+            gas: '900000',
+            gasPrice: 2000000000
         }, function (e, result) {
             if (e) {
                 if(e.message.includes('User denied transaction signature.') ){
@@ -463,8 +463,8 @@ var draw = function () {
     $('#draw-submit').removeAttr('onclick');
 
     instance.draw({
-        gas: '9000000',
-        gasPrice: 2000000000
+        gas: '400000',
+        gasPrice: 0
     }, function (e, result) {
         if (e) {
                 console.log(e.code)
