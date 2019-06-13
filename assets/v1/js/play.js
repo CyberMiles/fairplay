@@ -414,11 +414,11 @@ var play = function () {
         $("#mesg-field").removeAttr("disabled");
 
         var contactApp = $("#contact-app-field").val();
-        var contactId = $("#contact-id-field").val();
+        var contactId = $("#contact-id-field").val().trim();
         var contact = contactApp + ": " + contactId;
-        var name = $("#name-field").val();
+        var name = $("#name-field").val().trim();
         var mesg = $("#mesg-field").val();
-        if (contactId == null || contactId == '') {
+        if (contactId == null || contactId == '' || name == null || name == '') {
             tip.error(lgb.error);
             return;
         }
