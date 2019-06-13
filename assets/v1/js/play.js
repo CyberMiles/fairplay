@@ -7,23 +7,20 @@ const contract_address = fun.getParameter("contract");
 var userAddress = '';
 var ownerAddress = '';
 var abi = '';
-var bin = '';
 var contract = '';
 var instance = '';  // contract instance
 var setWeb3 = true
 
 $(function () {
+    tip.loading(lgb["loading"] || "Loading ...");
+
     window.lgb = lgb;
     initLanguage();
 
     setupCaseWeb3();
-        // init the abi and bin
+        // init the abi
     getAbi();
-    getBin();
     bindShowShare();
-    tip.loading(lgb["loading"] || "Loading ...");
-    
-
 
     var addr_clipboard = new ClipboardJS('.cp-addr-btn');
     addr_clipboard.on('success', function(e) {
@@ -35,7 +32,7 @@ $(function () {
         e.clearSelection();
     });
     var test_cpboard = new ClipboardJS('.test-cp-btn');
-      var share_clipboard = new ClipboardJS('.copy-btn');
+    var share_clipboard = new ClipboardJS('.copy-btn');
 
 
     share_clipboard.on('success', function(e) {
@@ -178,7 +175,7 @@ var getInfo = function () {
                     ownerAddress = r.toString();
                 }
             });
-
+                  
             instance.info (function (e, r) {
                 if (e) {
                     console.log(e);
@@ -237,6 +234,7 @@ var getInfo = function () {
                                         // Show prefilled play form
                                         $('#name-field').val(name);
                                         $('#mesg-field').val(mesg);
+                                        $("#count-msg").text(mesg.length + "/255")
                                         var cc = contact.split(":");
                                         $('#contact-app-field').val(cc[0].trim());
                                         $('#contact-id-field').val(cc[1].trim());
@@ -264,6 +262,7 @@ var getInfo = function () {
                                             $('#confirm-panel').css("display", "block");
                                         } else {
                                             $("#confirm-field").val(confirm_mesg);
+                                            $("#count-confirm").text(confirm_mesg + "/255")
                                             $("#confirm-field").attr("disabled", true);
                                             $('#confirm-panel').css("display", "block");
                                             $('#confirm-submit').text(lgb["update"]);
@@ -387,17 +386,6 @@ var getAbi = function () {
         dataType: 'text',
         success: function (data) {
             abi = JSON.parse(data);
-        }
-    });
-}
-
-var getBin = function () {
-    $.ajax({
-        url: 'FairPlay.bin',
-        dataType: 'text',
-        sync: true,
-        success: function (data) {
-            bin = JSON.parse(data);
         }
     });
 }

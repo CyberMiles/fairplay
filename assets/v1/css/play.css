@@ -256,3 +256,10 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     background-color: #ff4545;
     border-color: #ff4545;
 }
+
+.count-txt {
+    color: gray;
+    font-size: small;
+    margin-left: auto;
+    margin-right: 0;
+}
