@@ -10,6 +10,8 @@ var abi = '';
 var contract = '';
 var instance = '';  // contract instance
 var setWeb3 = true
+var interval
+
 
 $(function () {
     tip.loading(lgb["loading"] || "Loading ...");
@@ -61,12 +63,17 @@ $(function () {
     })
 
 
-    var interval = setInterval(function () {
-        if (abi.length > 0) {
-            window.onload = getInfo();
-            clearInterval(interval);
-        }
-    }, 50);
+    var checkABIandGetInfo = function(){
+      if( abi.length > 0 && web3 != undefined) {
+            getInfo();
+      }
+        else setTimeout( checkABIandGetInfo, 50 );
+    }
+    checkABIandGetInfo(); //immediate first run 
+
+
+       
+    
 });
 
 var setupCaseWeb3 = function () {
@@ -74,24 +81,31 @@ var setupCaseWeb3 = function () {
         web3.cmt
     }catch(e){
         setWeb3 = false
-        var Web3 = require("web3-cmt")
-        web3 = new Web3(new Web3.providers.HttpProvider("https://rpc.cybermiles.io:8545"))
-        console.log("web3")
+        web3 = undefined
+        var script = document.createElement('script');
+        script.src = "../assets/v1/js/web3-cmt.js";
+        script.onload = function () {
+            //do stuff with the script
+            var Web3 = require("web3-cmt")
+            web3 = new Web3(new Web3.providers.HttpProvider("https://rpc.cybermiles.io:8545"))
 
-        $("#draw-submit").html(lgb["cmt_draw"]||"Open in CMT Wallet to draw.")
-        $("#draw-submit").removeAttr("data-translate")
-        $("#draw-submit").removeAttr("onclick")
-        $("#draw-submit").click(function(){
-            webBrowser.openBrowser();
-        })
+            $("#draw-submit").html(lgb["cmt_draw"]||"Open in CMT Wallet to draw.")
+            $("#draw-submit").removeAttr("data-translate")
+            $("#draw-submit").removeAttr("onclick")
+            $("#draw-submit").click(function(){
+                webBrowser.openBrowser();
+            })
 
-        $("#play-panel .form-control").attr("disabled", true);
-        $("#play-submit").html(lgb["go_play"]||"Open in CMT Wallet to play.")
-        $("#play-submit").removeAttr("data-translate")
-        $("#play-submit").removeAttr("onclick")
-        $("#play-submit").click(function(){
-            webBrowser.openBrowser();
-        })
+            $("#play-panel .form-control").attr("disabled", true);
+            $("#play-submit").html(lgb["go_play"]||"Open in CMT Wallet to play.")
+            $("#play-submit").removeAttr("data-translate")
+            $("#play-submit").removeAttr("onclick")
+            $("#play-submit").click(function(){
+                webBrowser.openBrowser();
+            })
+        };
+        document.head.appendChild(script);
+
     }
 }
 
