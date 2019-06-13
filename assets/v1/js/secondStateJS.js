@@ -407,7 +407,39 @@ var renderGiveaways = async (_hits) =>{
     $.each(_hits, (index, value)=>{
         modifyTemplate(index, value);
     })
-   
+
+    lazyLoadPrizeImg();
+       
+}
+
+var lazyLoadPrizeImg = () => {
+    var lazyloadThrottleTimeout;
+    lazyloadImages = document.querySelectorAll(".lazy");
+    
+    function lazyload () {
+      if(lazyloadThrottleTimeout) {
+        clearTimeout(lazyloadThrottleTimeout);
+      }    
+
+      lazyloadThrottleTimeout = setTimeout(function() {
+        var scrollTop = window.pageYOffset;
+        lazyloadImages.forEach(function(img) {
+            if($(img).offset().top < (window.innerHeight + scrollTop)) {
+              img.src = img.dataset.src;
+              img.classList.remove('lazy');
+            }
+        });
+        if(lazyloadImages.length == 0) { 
+          document.removeEventListener("scroll", lazyload);
+          window.removeEventListener("resize", lazyload);
+          window.removeEventListener("orientationChange", lazyload);
+        }
+      }, 20);
+    }
+
+    document.addEventListener("scroll", lazyload);
+    window.addEventListener("resize", lazyload);
+    window.addEventListener("orientationChange", lazyload);
 }
 
 var modifyTemplate = (index, value) => {
@@ -419,7 +451,15 @@ var modifyTemplate = (index, value) => {
         if(func_data[3] == ""){
             template.find(".prize-img-container").detach()
         }else{
-            template.find(".prize-img").attr("src",func_data[3]);
+            if(index > 1)
+            {
+                template.find(".prize-img").attr("data-src",func_data[3]);
+                template.find(".prize-img").addClass("lazy")            
+            }else
+            {
+                template.find(".prize-img").attr("src",func_data[3]);                
+            }
+
         }
         template.find(".giveaway-title").text(func_data[1]);
         template.find(".n-winners").text((lgb["n_of_winners"] || "Number of winners") + ":  " + func_data[4]);

@@ -321,6 +321,7 @@ p.card-text.giveaway-desc {
 
 .prize-img{
     position: absolute;
+    background: #F1F1FA;
 }
 
 .nav-details{

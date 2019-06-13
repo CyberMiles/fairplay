@@ -19,11 +19,11 @@ else if(window.location.href.split("/").indexOf("v2") !== -1){ //v2 directory
     document.write("<script type='text/javascript' src='../assets/v2/js/language/zh.js'></script>");
 }
 else{ // top directory
-    document.write("<script type='text/javascript' src='assets/v1/js/popper.min.js'></script>");
+    // document.write("<script type='text/javascript' src='assets/v1/js/popper.min.js'></script>");
     document.write("<script type='text/javascript' src='assets/v1/js/bootstrap.min.js'></script>");
     document.write("<script type='text/javascript' src='assets/v1/js/clipboard.js'></script>");
     // document.write("<script type='text/javascript' src='assets/v1/js/popupTip/layer.js'></script>");
-    document.write("<script type='text/javascript' src='assets/v1/js/popupTip.js'></script>");
+    // document.write("<script type='text/javascript' src='assets/v1/js/popupTip.js'></script>");
     document.write("<script type='text/javascript' src='assets/v1/js/browser.js'></script>");
     document.write("<script type='text/javascript' src='assets/v1/js/language/en.js'></script>");
     document.write("<script type='text/javascript' src='assets/v1/js/language/zh.js'></script>");

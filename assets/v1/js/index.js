@@ -1,5 +1,5 @@
 const fun = new MainFun();
-const tip = IUToast;
+// const tip = IUToast;
 const lgb = fun.languageChoice();
 
 
@@ -15,7 +15,7 @@ var setupCaseWeb3 = () => {
     try{
         web3.cmt.getAccounts(function (e, address) {
             if (e) {
-                tip.error(lgb["error"] || "There is an error");
+                alert(lgb["error"] || "There is an error");
             } else {
                 var userAddress = address.toString();
                 var shortAddr = userAddress.substr(0,5) + "***" + userAddress.substr(-3)

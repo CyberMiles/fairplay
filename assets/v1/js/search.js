@@ -1,5 +1,5 @@
 const fun = new MainFun();
-const tip = IUToast;
+// const tip = IUToast;
 const lgb = fun.languageChoice();
 
 const getUrlParameter = function (name) {
