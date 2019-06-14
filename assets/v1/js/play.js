@@ -3,7 +3,7 @@ const tip = IUToast;
 const lgb = fun.languageChoice();
 // const baseUrl = window.location.origin;
 const webBrowser = new AppLink();
-const contract_address = fun.getParameter("contract");
+const contract_address = fun.getParameter("contract").slice(0, 42);
 var userAddress = '';
 var ownerAddress = '';
 var abi = '';
@@ -141,7 +141,9 @@ function copyLink(){
 var bindShowShare = function(){
     //noD$(".share-btn")isplay = ['xing', 'print', 'vk'];
     $("iframe").attr("src", "share.html?code=" + contract_address)
-    $("#share-link").val(window.location.toString());
+    addr_index = window.location.toString().indexOf("0x")
+    
+    $("#share-link").val(window.location.toString().slice(0, addr_index + 42));
     // $(".share-btn").click(()=>{
     //    $(".share-panel").removeClass("d-none");
     //    $(".overlay").removeClass("d-none");
