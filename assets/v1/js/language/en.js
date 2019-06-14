@@ -81,4 +81,6 @@ var EnLanguage = {
     latest_plays:"lastest giveaways",
     more:"More",
     create_new: "Create a new giveaway",
+    contact_error: "This email has been used!",
+    email_error:"Please enter the valid email address."
 }

@@ -11,7 +11,7 @@ var contract = '';
 var instance = '';  // contract instance
 var setWeb3 = true
 var interval
-
+var contacts = []
 
 $(function () {
     tip.loading(lgb["loading"] || "Loading ...");
@@ -75,6 +75,15 @@ $(function () {
        
     
 });
+
+hashCode = function(s){
+  return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);              
+}
+
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
 
 var setupCaseWeb3 = function () {
     try{
@@ -362,6 +371,9 @@ var getInfo = function () {
                                       player_row.find(".user-contact").text(rpi[3])
                                     }
                                     $("#players-panel-table").append(player_row)
+                                    var email = rpi[3].split(":")[1].trim();
+                                    contacts.push(hashCode(email))
+
 
                                     // var html_old = $('#players-panel-table').html();
                                     // var html_snippet = "<tr><td>" + rpi[2] + "</td><td>";
@@ -425,6 +437,14 @@ var play = function () {
         if (contactId == null || contactId == '' || name == null || name == '') {
             tip.error(lgb.error);
             return;
+        }
+        if (contacts.indexOf(hashCode(contactId)) !== -1){
+            tip.error(lgb.contact_error);
+            return;
+        }
+        if (!validateEmail(contactId)){
+            tip.error(lgb.email_error);
+            return;            
         }
         $(".main-button").css("background-color", "#696969");
         $('#play-submit').text(lgb.wait);

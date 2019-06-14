@@ -73,6 +73,8 @@ var ZhLanguage = {
     leave_confirm_msg:"获奖了，说些什么吧...",
     creater:"发起人",
     copy:"复制",
+    contact_error:"该邮箱已被使用！",
+    email_error:"请输入有效邮箱地址",
     //play.js
     error: "错误。请再试一次！",
     wait: "上链中 ...",
