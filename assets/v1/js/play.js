@@ -13,9 +13,19 @@ var setWeb3 = true
 var interval
 var contacts = []
 
-$(function () {
-    tip.loading(lgb["loading"] || "Loading ...");
+$(window).scroll(function() {
+    if ($(this).scrollTop() + innerHeight < 
+        $("#play-panel").height() + $("#info-panel").height()) {
+        $(".sticky-footer").hide();
+    }
+    else {
+        $(".sticky-footer").show();
+    }
+});
 
+$(function () {
+    
+    tip.loading(lgb["loading"] || "Loading ...");
     window.lgb = lgb;
     initLanguage();
 
@@ -244,7 +254,7 @@ var getInfo = function () {
                             var mesg = rpi[4];
                             var confirm_mesg = rpi[5];
                             
-                           $('.sticky-footer').css("display", "block");
+                           // $('.sticky-footer').css("display", "block");
 
 
                             if (status == 0) {
