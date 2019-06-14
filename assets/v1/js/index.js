@@ -4,6 +4,8 @@ const lgb = fun.languageChoice();
 
 
 $(document).ready(function () {
+    $(".loader").removeClass("d-none")
+    
     setupCaseWeb3();
     initLanguage();
     $(".search-box").val("")
@@ -73,7 +75,6 @@ initCSS = () => {
 
 var initInfo =  async () => {
     $(".more-plays").text(lgb["loading"] || "loading...")
-
     
     var n_current_giveaway = 0 
     if(localStorage.getItem('latestGiveaways')){
@@ -104,6 +105,7 @@ var initInfo =  async () => {
          //reapply new items
          await renderGiveaways(latestGiveaways)
     // }
+    $(".loader").addClass("d-none")
 
     $(".more-plays").click(()=>{
       var moreitems = 0   
