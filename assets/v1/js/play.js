@@ -141,9 +141,9 @@ function copyLink(){
 var bindShowShare = function(){
     //noD$(".share-btn")isplay = ['xing', 'print', 'vk'];
     $("iframe").attr("src", "share.html?code=" + contract_address)
-    addr_index = window.location.toString().indexOf("0x")
+    addr_index = window.location.toString().indexOf("?contract=0x")
     
-    $("#share-link").val(window.location.toString().slice(0, addr_index + 42));
+    $("#share-link").val(window.location.toString().slice(0, addr_index + 52));
     // $(".share-btn").click(()=>{
     //    $(".share-panel").removeClass("d-none");
     //    $(".overlay").removeClass("d-none");
