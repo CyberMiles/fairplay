@@ -373,6 +373,8 @@ var getInfo = function () {
                                     player_row.find(".user-name").text(rpi[2])
                                     player_row.find(".user-note").text(rpi[4])
                                     if (ownerAddress == userAddress) {
+                                      $("#players-n-txt").removeClass("d-none")
+                                      $("#players-n").text(players.length)
                                       $(".users-contact").removeClass("d-none")
                                       player_row.find(".user-addr").removeClass("d-none")
                                       player_row.find(".user-addr > a").attr("alt", thisAddr)
@@ -380,33 +382,10 @@ var getInfo = function () {
                                       player_row.find(".user-contact").removeClass("d-none")
                                       player_row.find(".user-contact").text(rpi[3])
                                     }
+
                                     $("#players-panel-table").append(player_row)
                                     var email = rpi[3].split(":")[1].trim();
                                     contacts.push(hashCode(email))
-
-
-                                    // var html_old = $('#players-panel-table').html();
-                                    // var html_snippet = "<tr><td>" + rpi[2] + "</td><td>";
-                                    // if (ownerAddress == userAddress) {
-                                    //     $(".users-contact").removeClass("d-none");
-                                    //     if (rpi[4] == null) {
-                                    //         html_snippet = html_snippet + "</td><td>";
-                                    //     } else {
-                                    //         html_snippet = html_snippet + rpi[4] + "</td><td>";
-                                    //     }
-                                    //     html_snippet = html_snippet + rpi[3] + "</td></tr>";
-                                    // } else {
-                                    //     if (rpi[4] == null) {
-                                    //         html_snippet = html_snippet + "</td></tr>";
-                                    //     } else {
-                                    //         html_snippet = html_snippet + rpi[4] + "</td></tr>";
-                                    //     }
-                                    // }
-                                    // $('#players-panel-table').html(html_old + html_snippet);
-
-                                    // var html_old = $('#players-panel-table').html();
-                                    // var html_snippet = "<tr><td>" + rpi[2] + "</td><td>" + rpi[4] + "</td></tr>";
-                                    // $('#players-panel-table').html(html_old + html_snippet);
                                 }
                             });
                         }

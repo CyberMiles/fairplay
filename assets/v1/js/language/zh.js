@@ -75,6 +75,7 @@ var ZhLanguage = {
     copy:"复制",
     contact_error:"该邮箱已被使用！",
     email_error:"请输入有效邮箱地址",
+    join_players:"人已参与",
     //play.js
     error: "错误。请再试一次！",
     wait: "上链中 ...",

@@ -263,3 +263,14 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     margin-left: auto;
     margin-right: 0;
 }
+
+.inline-right {
+    position: absolute;
+    right: 15px;
+    text-align: right;
+    display: inline;
+}
+
+.inline-block{
+    display: inline-block;
+}
