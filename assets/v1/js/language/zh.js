@@ -96,7 +96,7 @@ var ZhLanguage = {
     more:"更多",
     block_height:"块高",
     play:"进入",
-    go_play:"在CMT Wallet中参加",
+    go_play:"点我参与抽奖",
     result:"结果",
     see_result:"在CMT Wallet中查看结果",
     go_open:"在CMT Wallet中打开",

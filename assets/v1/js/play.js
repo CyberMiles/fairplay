@@ -14,7 +14,7 @@ var interval
 var contacts = []
 
 $(window).scroll(function() {
-    if ($(this).scrollTop() + innerHeight < 
+    if ($(this).scrollTop() + outerHeight < 
         $("#play-panel").height() + $("#info-panel").height()) {
         $(".sticky-footer").hide();
     }
@@ -24,7 +24,7 @@ $(window).scroll(function() {
 });
 
 $(function () {
-    
+
     tip.loading(lgb["loading"] || "Loading ...");
     window.lgb = lgb;
     initLanguage();
@@ -115,8 +115,8 @@ var setupCaseWeb3 = function () {
                 webBrowser.openBrowser();
             })
 
-            $("#play-panel .form-control").attr("disabled", true);
-            $("#play-submit").html(lgb["go_play"]||"Open in CMT Wallet to play.")
+            $("#play-panel form").hide();
+            $("#play-submit").html(lgb["go_play"]||"Click Here to Participate")
             $("#play-submit").removeAttr("data-translate")
             $("#play-submit").removeAttr("onclick")
             $("#play-submit").click(function(){
