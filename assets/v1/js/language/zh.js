@@ -10,7 +10,7 @@ var ZhLanguage = {
     img_url:"图片URL",
     select_pic:"选择图片",
     uploading:"正在上传......",
-    upload_helper:"上传一张能够描述奖品的图。（图片类型：jpg, jpeg, png, 并且图片小于2 MB）",
+    upload_helper:"上传一张关于奖品的图（仅支持JPEG/PNG，且小于2 MB）",
     url_helper:"描述该奖品图片的URL",
     n_of_winners:"获奖人数",
     number_helper:"获得该奖品的人数",
@@ -76,6 +76,8 @@ var ZhLanguage = {
     contact_error:"该邮箱已被使用！",
     email_error:"请输入有效邮箱地址",
     join_players:"人已参与",
+    nowallet_hints:"参与抽奖等更多功能请下载CMT Wallet 体验。",
+    good_luck:"祝好运",
     //play.js
     error: "错误。请再试一次！",
     wait: "上链中 ...",

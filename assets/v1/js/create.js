@@ -93,8 +93,8 @@ var initLinkTb = function(){
       }
       else{
         var $clone = $TABLE.find('tr.d-none').clone(true).removeClass('d-none table-line');
-        $clone.find('td:eq(0)').text($("#purchase-platform").val())
-        $clone.find('td:eq(1)').text($("#purchase-link").val())
+        $clone.find('td:eq(0)').find('.purchase-key').text($("#purchase-platform").val())
+        $clone.find('td:eq(0)').find('.purchase-value').text($("#purchase-link").val())
         $TABLE.find('table').append($clone);
 
           console.log($("#purchase-platform").val())
@@ -123,18 +123,17 @@ var create = function () {
             shopping_link = [];
             $('#purchase_table').each(function(){
                 $(this).find('td').each(function(){
-                    td_content = $(this).text()
-                    if(i%3 == 1 ){
-                        shopping_site.push(td_content)
-                    }else if(i%3 == 2){
-                        shopping_link.push(td_content)
-                    }else if(i%3 == 0){
+                    td_content = $(this)
+                    if(i%2 == 1 ){
+                        shopping_site.push(td_content.find(".purchase-key").text())
+                        shopping_link.push(td_content.find(".purchase-value").text())
+                    }else if(i%2 == 0){
 
                     }
                     i++;
                 })
             })
-
+            console.log(shopping_site, shopping_link)
             //make the md of desc
             //   `    #Description
             //          ddddfdfdf fdf dfdf
@@ -293,8 +292,9 @@ $('#img-form').ajaxForm({
 
 
 function uploadPic(){
-    $(".image-upload-wrap").css("background-color","#888888")
-    $(".image-upload-wrap").css('border','4px dashed #ffffff') 
+    console.log("upload")
+    $(".image-upload-wrap").css("background-color","#999999")
+    $(".image-upload-wrap").css('border','1px dashed #ffffff') 
     if($("#selected-img").val()){
            console.log("start")
           $("#submit").click()
@@ -302,12 +302,13 @@ function uploadPic(){
 }
 
 function changeBoxCSS(){
- $(".image-upload-wrap").css('background-color','#888888')
- $(".image-upload-wrap").css('border','4px dashed #ffffff') 
+    console.log("changeBoxCSS")
+ $(".image-upload-wrap").css('background-color','#999999')
+ $(".image-upload-wrap").css('border','1px dashed #ffffff') 
  $(".image-upload-wrap").css('transition','.5s')
   setTimeout(function() {
     $(".image-upload-wrap").css('background-color','transparent') 
-    $(".image-upload-wrap").css('border','4px dashed #888888') 
+    $(".image-upload-wrap").css('border','1px dashed #999999') 
 
   }, 500);
 }

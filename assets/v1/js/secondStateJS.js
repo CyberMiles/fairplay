@@ -35,7 +35,7 @@ var ICreatedButton = () => {
             dQuery['query'] = dBool;
             var jsonString = JSON.stringify(dQuery);
             // If this is a public website then we need to call ES using Flask
-            var itemArray = await getItemsViaFlask({_data: jsonString, _cmpParams: ["_source","blockNumber"], _filtered: false});
+            var itemArray = await getItemsViaFlask({_data: jsonString, _cmpParams: ["_source","blockNumber"], _filtered: true});
 
 
             return Object.keys(itemArray).length;
@@ -70,7 +70,7 @@ var IParticipatedButton = () => {
             var jsonString = JSON.stringify(dQuery);
 
             // If this is a public website then we need to call ES using Flask
-            var itemArray = await getItemsViaFlask({_data: jsonString, _cmpParams: ["_source","blockNumber"], _filtered: false});
+            var itemArray = await getItemsViaFlask({_data: jsonString, _cmpParams: ["_source","blockNumber"], _filtered: true});
 
             return Object.keys(itemArray).length;
         }
@@ -104,7 +104,7 @@ var IWonButton = () => {
             $("#pbc").hide('slow');
             var jsonString = JSON.stringify(dQuery);
             // If this is a public website then we need to call ES using Flask
-            var itemArray = await getItemsViaFlask({_data: jsonString, _cmpParams: ["_source","blockNumber"], _filtered: false});
+            var itemArray = await getItemsViaFlask({_data: jsonString, _cmpParams: ["_source","blockNumber"], _filtered: true});
 
             return Object.keys(itemArray).length;
         }
@@ -384,7 +384,7 @@ async function getItemsViaFlask({_data = _defaultDataString, _compare = cmpFunc,
             // if(blacklist.indexOf(obj._source.contractAddress) == -1)
             //     return obj
             // })
-            filteredRes = filteredRes.filter(function(obj){
+            whiteFilteredRes = filteredRes.filter(function(obj){
                 var lowerCaseWhitelist = whitelist.map(function (addr) {
                       return addr.toLowerCase()
                 });
@@ -393,9 +393,36 @@ async function getItemsViaFlask({_data = _defaultDataString, _compare = cmpFunc,
             })
         }
         
-        sortedRes = Object.values(filteredRes).sort(_compare(_cmpParams))
-        _renderNow ? renderGiveaways(sortedRes) : {};
-        return sortedRes;
+        whiteSortedRes = Object.values(whiteFilteredRes).sort(_compare(_cmpParams))
+        console.log(whiteSortedRes)
+
+        otherRes = filteredRes.filter(function(obj){
+           var lowerCaseWhitelist = whitelist.map(function (addr) {
+                      return addr.toLowerCase()
+                });
+
+            if(lowerCaseWhitelist.indexOf(obj._source.contractAddress.toLowerCase()) == -1)
+                return obj
+        })
+
+        otherSortedRes = Object.values(otherRes).sort(_compare(_cmpParams))
+
+         $.each(whiteFilteredRes, function(i, g){
+            g.promoted = true;
+        })
+         $.each(otherSortedRes, function(i, g){
+            g.promoted = false;
+        })
+         
+       
+
+        allRes = whiteSortedRes.concat(otherSortedRes)
+
+        console.log(allRes)
+
+        _renderNow ? renderGiveaways(allRes) : {};
+        return allRes;
+
     }catch(error){
        console.log("Get items failed");
     }
@@ -512,6 +539,10 @@ var modifyTemplate = (index, value) => {
             
             // template.find(".tag-font").text("ongoing")
             // template.find(".tag-font").addClass("green")
+            if(value.promoted){
+                template.find(".promoted").removeClass("d-none")
+            }
+
         }
         
         template.find(".rm-giveaway").attr("alt", value._source.contractAddress)

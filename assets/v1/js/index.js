@@ -20,15 +20,16 @@ var setupCaseWeb3 = () => {
                 alert(lgb["error"] || "There is an error");
             } else {
                 var userAddress = address.toString();
-                var shortAddr = userAddress.substr(0,5) + "***" + userAddress.substr(-3)
+                var shortAddr = userAddress.substr(0,10) + "..." + userAddress.substr(-3)
                 $("#self_addr").html(shortAddr);
             }
         })
     }catch(e){
         console.log("no web3")
         $(".tab-btns").hide()
-        $(".sidebar-header").css("margin-top","50px")
-        $(".sidebar-header>p").css("position","relative")
+        $("#no-wallet-hints").removeClass("d-none")
+        $(".sidebar-footer").css("margin-top","50px")
+        $(".sidebar-footer p").css("position","relative")
         $("#sidebar ul").hide()
         $("#create-btn").append("<div><small>" + (lgb['go_open'] || "open in cmt wallet") + "</small></div>")
 

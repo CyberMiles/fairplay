@@ -8,14 +8,6 @@ body {
     background: #fafafa;
 }
 
-p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-}
-
 a,
 a:hover,
 a:focus {
@@ -25,8 +17,9 @@ a:focus {
 }
 
 .container {
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
 }
 
 .navbar {
@@ -56,7 +49,7 @@ a:focus {
 ----------------------------------------------------- */
 
 #sidebar {
-    width: 250px;
+    width: 200px;
     position: fixed;
     top: 0;
     left: -250px;
@@ -103,15 +96,16 @@ a:focus {
     opacity: 1;
 }
 
-#sidebar .sidebar-header {
-    padding: 20px;
+#sidebar .sidebar-footer {
+    padding: 10px 0px 0px 15px;
+    font-color:  rgba(0, 0, 0, 0.5);;
     /*background: #aba1a1bf;*/
 }
 
 #sidebar ul.components {
-    padding: 60px 0;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #e1e1e1;
+    /*padding: 15px 0;*/
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e5e5e5;
     overflow-wrap: break-word;
     padding-left: 5px;
 }
@@ -121,29 +115,44 @@ a:focus {
     padding: 10px;
 }
 
-.sidebar-header > p > svg {
+.sidebar-footer  svg {
     fill: rgba(0,0,0,.54);
     margin-right: 10px;
-    padding-top: 3px;
+    padding-top: 7px;
     /* margin-top: 5px; */
     margin-bottom: -3px;
 }
 
+.sidebar-footer p {
+    margin-bottom: 10px;
+}
+
 #sidebar ul li a {
     padding: 10px;
-    font-size: 15px;
+    font-size: 13px;
+    color: #191919;
     display: block;
 }
 
-#sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+#sidebar ul li:hover a{
+    color: #191919;
+    background: rgba(25,25,25,0.04);
+    margin-left: -5px;
+
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    color: #fff;
+    /*color: #fff;*/
     background: #6d7fcc;
+}
+
+.profile-header {
+    padding: 25px 0px 10px 10px;
+}
+
+.social-medias {
+
 }
 
 a[data-toggle="collapse"] {
@@ -240,17 +249,24 @@ a.article:hover {
 }
 
 .sidebarCollapse{
-    height: 64px;
-    padding: 18px;
+    height: 44px;
+    padding-top: 10px;
+    padding-left: 18px;
     width: fit-content;
+    margin: 0;
 }
 
 .search-box {
-    border-radius: 20px 0 0 20px;
+    border-right: 0 !important; 
 }
 
 .search-btn {
-    border-radius: 0 20px 20px 0;
+    border-radius: 0 4px 4px 0;
+    background-color: #ffffff;
+    border: solid 0.5px #e5e5e5;
+    color: #ff4545;
+    border-left: 0; 
+
 }
 
 #search-panel {
@@ -293,20 +309,85 @@ a span {
 }
 .navbar-nav:last-child{ border-right:0}
 
+.fairplay_logo {
+    display: inline-block;
+}
+
 .fairplay_logo img {
-    display: block;
-    margin: auto;
-    padding: 12px;
+    display: inline-block;
+    margin-left: 54px;
+    margin-top: 11px;
+    padding: 0px;
+    width: 65px;
+}
+
+.float-right {
+    display: inline-block;
+    float: right;
+    padding-top: 13px;
+    padding-right: 15px;
+}
+
+.font-style1{
+  /*height: 14px;*/
+  font-family: SFUIText;
+  font-size: 14px;
+  /*line-height: 1;*/
+  color: #191919;
+}
+
+.font-style-s13-c999{
+  font-family: SFUIText;
+  font-size: 13px;
+  color: #999;
+}
+
+
+.font-style2{
+    font-family: SFProText;
+    font-size: 15px;
+    color: #666666;
+}
+
+.font-style3{  
+  font-family: PingFangSC;
+  font-size: 12px;
+  color: #666666;
+}
+
+.font-style4{
+  font-family: SFUIText;
+  font-size: 13px;
+  color: #666666;
+}
+
+.font-style5{
+  font-family: SFUIText;
+  font-size: 17px;
+  color: #191919;
 }
 
 .header {
-    height: 64px;
+    height: 44px;
     position: absolute;
     top: 0;
     width: 100%;
     z-index: -100;
     left: 0;
 }
+.card-body {
+    padding: 15px;
+}
+
+dl dd {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-height: 14px;
+}
+
 .card-deck {
     margin-top: 10px;
     margin-bottom: 20px;
@@ -319,24 +400,36 @@ a span {
     }
 }
 
-
+.card-title{
+    /*line-height: 1;*/
+    font-family: SFProText;
+    font-size: 17px;
+    font-weight: 500;
+    /* height: 17px; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    margin-bottom: 5px;
+}
 
 .card-tips{
     margin: 10px; 
 }
 
-p.card-text.giveaway-desc:before {
-    content: '......';
-    /* float: right; */
-    margin-top: 3.4em;
-    /* margin-right: 5px; */
-    position: absolute;
-}
-
 p.card-text.giveaway-desc {
-    line-height: 1.7em;
-    max-height: 3.4em;
+
+    font-family: SFProText;
+    font-size: 13px;
+    line-height: 16px;
     overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    color: #999999;
+    margin-bottom: 12px;
 }
 
 .card-footer small {
@@ -349,7 +442,7 @@ p.card-text.giveaway-desc {
 
 .prize-img-container {
     position: relative;
-    height: 180px;
+    height: 100px;
     overflow: hidden;
 }
 
@@ -382,7 +475,7 @@ p.card-text.giveaway-desc {
 }
 
 .profile_hr{
-    border-bottom: 0 solid #e1e1e1;
+    border-bottom: 0 solid #e5e5e5;
     margin-left: -10px;
 }
 
@@ -401,6 +494,28 @@ p.card-text.giveaway-desc {
     z-index: 100;
     right: -5px;
     top: 25px;
+}
+
+.promoted{
+  height: 24px;
+  border-radius: 2px;
+  background-color: #fecc59;
+  float: right;
+  position: absolute;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  z-index: 100;
+  letter-spacing: normal;
+  color: #191919;
+  right: 24px;
+  top: 12px;
+  text-transform: capitalize;
+  line-height: 24px;
+  padding: 0 6px;
+
 }
 
 .red {
@@ -433,20 +548,30 @@ p.card-text.giveaway-desc {
 }
 
 .tab-btns {
-    padding: 0 1.5rem;
-    border: 1px solid lightgray;
-    border-radius: 20px;
+    padding: 0;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    /*border: 1px solid lightgray;*/
+    /*border-radius: 20px;*/
     white-space: nowrap;
     overflow: auto;
 }
 
 .tab-btns li{
     display: inline-block;
-    padding: 5px;
+    padding: 5px 7.5px;
 }
 
 .tab-btns li.active{
-    color: red;
-    border-bottom: 1px solid red;
+    color: #ff4545;
+    border-bottom: 2px solid #ff4545;
     border-bottom-width: thin;
+    font-weight: 500;
+}
+
+.form-control {
+    height: 40px;
+  border-radius: 4px;
+  border: solid 0.5px #e5e5e5;
+  background-color: #ffffff;
 }
