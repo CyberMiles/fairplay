@@ -76,7 +76,7 @@ var ZhLanguage = {
     contact_error:"该邮箱已被使用！",
     email_error:"请输入有效邮箱地址",
     join_players:"人已参与",
-    nowallet_hints:"参与抽奖等更多功能请下载CMT Wallet 体验。",
+    nowallet_hints:"参与抽奖等更多功能请<a href='http://www.cybermiles.io/cmt-wallet/' style='color:blue;'>下载</a>CMT Wallet 体验。",
     good_luck:"祝好运",
     //play.js
     error: "错误。请再试一次！",

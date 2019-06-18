@@ -19,7 +19,7 @@ p {
     line-height: 1.7em;
 }
 
-#desc-panel >p > a {
+#desc-panel a {
     color: blue;
 }
 .winner-show {
