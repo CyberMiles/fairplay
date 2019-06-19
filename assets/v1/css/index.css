@@ -127,6 +127,10 @@ a:focus {
     margin-bottom: 10px;
 }
 
+.sidebar-footer a {
+    color: blue;
+}
+
 #sidebar ul li a {
     padding: 10px;
     font-size: 13px;
