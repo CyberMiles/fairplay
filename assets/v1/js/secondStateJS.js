@@ -483,8 +483,13 @@ var modifyTemplate = (index, value) => {
         else
             template = $(".card-template").clone().removeClass("card-template")
         func_data = value._source.functionData.info;
-
-        imageUrl = func_data[3].split("upload/").join("upload/q_auto/")
+        
+        var imageUrl = ""
+        if(func_data[3].slice(0,27) == "https://res.cloudinary.com/"){
+            imageUrl = func_data[3].split("upload/").join("upload/q_auto/")
+        }else{
+            imageUrl = func_data[3]
+        }
         if(imageUrl == ""){
             template.find(".prize-img-container").detach()
         }else{

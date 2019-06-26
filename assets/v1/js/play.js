@@ -230,7 +230,13 @@ var getInfo = function () {
                     $('#desc-panel > #description').text(lgb['desc'] ||"Description");
                     $('#desc-panel > #shoppinglink').text(lgb['shopping_platform']||"Shopping Platform");
                     $('#desc-div').text(desc_html);
-                    $('#image-img').html('<img src="' + r[3].split("upload/").join("upload/q_auto/") + '" class="img-fluid img-thumbnail">');
+                    var imageUrl = ""
+                    if(r[3].slice(0,27) == "https://res.cloudinary.com/"){
+                        imageUrl = func_data[3].split("upload/").join("upload/q_auto/")
+                    }else{
+                        imageUrl = func_data[3]
+                    }
+                    $('#image-img').html('<img src="' + imageUrl + '" class="img-fluid img-thumbnail">');
                     var number_of_winners = r[4];
                     $('#number-of-winners-div').text(number_of_winners + "  " + (lgb['winner_unit'] || "person"));
                     var cutoff_ts = r[5];
