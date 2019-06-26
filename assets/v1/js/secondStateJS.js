@@ -483,16 +483,18 @@ var modifyTemplate = (index, value) => {
         else
             template = $(".card-template").clone().removeClass("card-template")
         func_data = value._source.functionData.info;
-        if(func_data[3] == ""){
+
+        imageUrl = func_data[3].split("upload/").join("upload/q_auto/")
+        if(imageUrl == ""){
             template.find(".prize-img-container").detach()
         }else{
             if(index > 1)
             {
-                template.find(".prize-img").attr("data-src",func_data[3]);
+                template.find(".prize-img").attr("data-src",imageUrl);
                 template.find(".prize-img").addClass("lazy")            
             }else
             {
-                template.find(".prize-img").attr("src",func_data[3]);                
+                template.find(".prize-img").attr("src",imageUrl);                
             }
 
         }
