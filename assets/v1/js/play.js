@@ -232,9 +232,9 @@ var getInfo = function () {
                     $('#desc-div').text(desc_html);
                     var imageUrl = ""
                     if(r[3].slice(0,27) == "https://res.cloudinary.com/"){
-                        imageUrl = func_data[3].split("upload/").join("upload/q_auto/")
+                        imageUrl = r[3].split("upload/").join("upload/q_auto/")
                     }else{
-                        imageUrl = func_data[3]
+                        imageUrl = r[3]
                     }
                     $('#image-img').html('<img src="' + imageUrl + '" class="img-fluid img-thumbnail">');
                     var number_of_winners = r[4];
