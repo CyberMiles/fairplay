@@ -535,7 +535,7 @@ var modifyTemplate = (index, value) => {
 
             template.find(".end-time").text((lgb["end_time_short"] || "End Time") +": " + endDate)
             template.find(".end-time").addClass("expired")
-            template.find(".nav-details").text(setWeb3 ? lgb["result"] || "Result" : lgb["see_result"] || "Open in CMT Wallet to see Result")
+            template.find(".nav-details").text(setWeb3 ? lgb["result"] || "Result" : lgb["see_result"] || "Open in CyberMiles App to see Result")
             template.find(".nav-details").addClass("btn-danger")
             template.find(".prize-img").addClass("img-filter")
             template.find(".tag-font").text(lgb['timeup'] || "time is up")
@@ -544,7 +544,7 @@ var modifyTemplate = (index, value) => {
 
             template.find(".end-time").text((lgb["end_time_short"] || "End Time") +": " + endDate)
             template.find(".end-time").addClass("current")
-            template.find(".nav-details").text(setWeb3 ? lgb["play"] || "Play" : lgb["go_play"] || "Open in CMT Wallet to Play")
+            template.find(".nav-details").text(setWeb3 ? lgb["play"] || "Play" : lgb["go_play"] || "Open in CyberMiles App to Play")
             template.find(".nav-details").addClass("btn-fairplay-yellow")
             template.find(".tag-font").removeClass("tag-font")
             

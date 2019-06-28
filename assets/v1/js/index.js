@@ -31,7 +31,7 @@ var setupCaseWeb3 = () => {
         $(".sidebar-footer").css("margin-top","50px")
         $(".sidebar-footer p").css("position","relative")
         $("#sidebar ul").hide()
-        $("#create-btn").append("<div><small>" + (lgb['go_open'] || "open in cmt wallet") + "</small></div>")
+        $("#create-btn").append("<div><small>" + (lgb['go_open'] || "open in CyberMiles App") + "</small></div>")
 
     }
 }

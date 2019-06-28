@@ -108,7 +108,7 @@ var setupCaseWeb3 = function () {
             var Web3 = require("web3-cmt")
             web3 = new Web3(new Web3.providers.HttpProvider("https://rpc.cybermiles.io:8545"))
 
-            $("#draw-submit").html(lgb["cmt_draw"]||"Open in CMT Wallet to draw.")
+            $("#draw-submit").html(lgb["cmt_draw"]||"Open in CyberMiles App to draw.")
             $("#draw-submit").removeAttr("data-translate")
             $("#draw-submit").removeAttr("onclick")
             $("#draw-submit").click(function(){

@@ -68,8 +68,8 @@ var EnLanguage = {
     leave_confirm_msg:"Leave a confirmation message",
     //qrcode.html
     generate_msg:"A new contract has been created! Generating the QR code......",
-    scan_msg:"Scan the following barcode in CMT Wallet to participate in the drawing!",
-    open_wallet:"Or open this directly in CMT Wallet:",  
+    scan_msg:"Scan the following barcode in CyberMiles App to participate in the drawing!",
+    open_wallet:"Or open this directly in CyberMiles App:",  
     //play.js
     error: "There is an error",
     wait: "Wait ...",
