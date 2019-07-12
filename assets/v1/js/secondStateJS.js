@@ -275,6 +275,7 @@ var cmpFunc = () => { }
 blacklist = ["0xFb1072dA1f6123fa389B6385D5AB7D1cd4BDe509",
             "0x600cab1ad5e7582be0ea4f8ee4014dc194ab9e42",
             "0x9C5D158e3c51E9eCFfA6770965b8b96E3D16074c",
+            "0x3feb6c511ea17e1cf18c95f39002d33efd3811aa",
             "0xF290D4b07f7c49B44d8e2785595745F5BCfaDb34",
             "0x18A45abfE471F8A5814e3Aa4Ea4a9C4cC40DCBdf",
             "0x7D45b9FFdDdc035D8D7e237E3fFBD6d1125d082c",
