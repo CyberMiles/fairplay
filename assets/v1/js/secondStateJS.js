@@ -274,6 +274,7 @@ var _defaultDataString = JSON.stringify(_defaultData);
 var cmpFunc = () => { }
 blacklist = ["0xFb1072dA1f6123fa389B6385D5AB7D1cd4BDe509",
             "0x600cab1ad5e7582be0ea4f8ee4014dc194ab9e42",
+            "0xD596493e11047b9Cd4d51C141AD7EfEEDB76398F",
             "0x9C5D158e3c51E9eCFfA6770965b8b96E3D16074c",
             "0x3fA0F75518E7FecF5b76E98aA8Fc90269D19F2D5",
             "0x3feb6c511ea17e1cf18c95f39002d33efd3811aa",
