@@ -343,6 +343,7 @@ blacklist = ["0xFb1072dA1f6123fa389B6385D5AB7D1cd4BDe509",
             ];
 
 whitelist = ["0x17D5eC999a2cDeE4c5986d5714330D36172355A8",
+             "0x65738c539ad06aa883c4b9f093f886f6cf34f2d7",
              "0x3d7bb0604cc0ca118a99fc1098523b5431bcea94",
              "0x6a2c193de582533396de0cb2f59352b3f415c6ab",
              "0x1437DDF7Eb26F93D1E34C14B64cC63Ab517701D7",
